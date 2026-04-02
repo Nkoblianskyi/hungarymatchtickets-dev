@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import {
   Calendar,
   MapPin,
@@ -18,8 +19,16 @@ import { Footer } from '@/components/footer'
 import { getEventBySlug, formatPrice, formatDate } from '@/lib/events'
 import { EventCountdown } from '@/components/event-countdown'
 
-export default function EventPage({ params }: { params: { slug: string } }) {
-  const event = getEventBySlug(params.slug)
+function slugFromParams(raw: string | string[] | undefined): string | undefined {
+  if (typeof raw === 'string') return raw
+  if (Array.isArray(raw) && raw[0]) return raw[0]
+  return undefined
+}
+
+export default function EventPage() {
+  const params = useParams()
+  const slug = slugFromParams(params.slug)
+  const event = slug ? getEventBySlug(slug) : undefined
   if (!event) return null
 
   const sortedPartners = [...event.partners].sort((a, b) => a.price - b.price)
