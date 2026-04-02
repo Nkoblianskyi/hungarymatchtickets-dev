@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 const navLinks = [
   { href: '/', label: 'Főoldal' },
@@ -22,6 +23,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
+          <Image src="/favicon.ico" alt="Logo" width={32} height={32} />
           <span className="text-xl font-semibold tracking-tight text-foreground">
             Hungary<span className="text-accent">Match</span>Tickets
           </span>
