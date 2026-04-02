@@ -12,7 +12,6 @@ const FEATURED_EVENTS = EVENTS.slice(0, 6)
 const PARTNERS = [
   { name: 'Ticketmaster', url: 'https://ticketmaster.hu' },
   { name: 'Jegy.hu', url: 'https://jegy.hu' },
-  { name: 'Ticketportal', url: 'https://ticketportal.hu' },
   { name: 'Viagogo', url: 'https://viagogo.com' },
   { name: 'StubHub', url: 'https://stubhub.com' },
   { name: 'Eventim', url: 'https://eventim.com' },
